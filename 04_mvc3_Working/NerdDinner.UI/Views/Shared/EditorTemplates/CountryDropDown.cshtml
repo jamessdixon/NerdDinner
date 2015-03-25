@@ -1,0 +1,4 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@Html.DropDownList("",
+    new SelectList(NerdDinner.UI.Helpers.CountryList.Countries,
+        Model))
