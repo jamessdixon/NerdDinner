@@ -11,12 +11,13 @@ open FSharp.Charting
 //type censusDataContext = CsvProvider<"https://portalvhdspgzl51prtcpfj.blob.core.windows.net/censuschicken/AK.TXT">
 //type censusDataContext = CsvProvider<"C:/data/namesbystate/AK.TXT",HasHeaders = false>
 
-type censusDataContext = CsvProvider<"C:/data/namesbystate/AK.TXT">
-type stateCodeContext = CsvProvider<"https://portalvhdspgzl51prtcpfj.blob.core.windows.net/censuschicken/states.csv">
- 
-let stateCodes =  stateCodeContext.Load("https://portalvhdspgzl51prtcpfj.blob.core.windows.net/censuschicken/states.csv");
+//type stateCodeContext = CsvProvider<"https://portalvhdspgzl51prtcpfj.blob.core.windows.net/censuschicken/states.csv"> 
+//let stateCodes =  stateCodeContext.Load("https://portalvhdspgzl51prtcpfj.blob.core.windows.net/censuschicken/states.csv");
+type stateCodeContext = CsvProvider<"C:/data/states.csv"> 
+let stateCodes =  stateCodeContext.Load("C:/data/states.csv");
 
 //let uri = System.String.Format("https://portalvhdspgzl51prtcpfj.blob.core.windows.net/censuschicken/{0}.TXT",stateCode)
+type censusDataContext = CsvProvider<"C:/data/namesbystate/AK.TXT">
 let fetchStateData (stateCode:string)=
         let uri = System.String.Format("C:/data/namesbystate/{0}.TXT",stateCode)
         censusDataContext.Load(uri)
@@ -71,7 +72,7 @@ let ageSearch name =
 ageSearch "James"
 
 //Chart the year of birth
-let chartData = ageSearch "James"
+let chartData = ageSearch "Tom"
                     |> Seq.map(fun (y,c,p) -> y, c)
                     |> Seq.sortBy(fun (y,c) -> y)
     
@@ -149,7 +150,7 @@ let stateSearch name =
         |> Seq.toArray
 
 //State Chart
-let chartData' = stateSearch "James"
+let chartData' = stateSearch "Jamie"
                     |> Seq.map(fun (s,c,p) -> s,c)
     
 Chart.Column(chartData').ShowChart()

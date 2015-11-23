@@ -53,13 +53,10 @@
     <Compile Include="Models.fs" />
     <Compile Include="Interfaces.fs" />
     <Content Include="packages.config" />
-    <None Include="Script3_Complete.fsx" />
-    <None Include="Script2_Complete.fsx" />
     <None Include="Script1_Complete.fsx" />
-    <None Include="Script1.fsx" />
-    <None Include="Script2.fsx" />
-    <None Include="Script3.fsx" />
-    <None Include="Script4.fsx" />
+    <None Include="Script2_Complete.fsx" />
+    <None Include="Script3_Complete.fsx" />
+    <None Include="Script4_Complete.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Charting">
