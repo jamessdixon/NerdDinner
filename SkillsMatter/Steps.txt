@@ -1,0 +1,7 @@
+1) Add in FSharp Project
+2) Clean Out Scripts
+3) Add in FSLab
+
+Script
+//Import a .csv
+
