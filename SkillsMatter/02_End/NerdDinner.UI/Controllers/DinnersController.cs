@@ -73,8 +73,10 @@ namespace NerdDinner.Controllers {
             //Skills Matter
             string uri = "https://ussouthcentral.services.azureml.net/workspaces/8d32705e228247c7b2f14301c2158a99/services/ab3279d700b246afb16c5ba6ce4cbf04/execute?api-version=2.0&details=true";
             string apiKey = "IK+rd6ekNSJpJ+5yfdKG3BUJFdJHOt8+OE/pxA40mEewXq4gFceefoJI1E0f/XpqbWCCALD2NDr6JIX+DZC9VA==";
-            AttendancePredictor predictor = new AttendancePredictor(apiKey,uri);
-            var projectedAttendance = predictor.GetProjectedAttendance(dinner.HostedById.Trim(), dinner.EventDate.DayOfWeek.ToString());
+            AttendancePredictor predictor = new AttendancePredictor(apiKey, uri);
+            var hostId = dinner.HostedById.Trim();
+            var dayOfWeek = (int)dinner.EventDate.DayOfWeek;
+            var projectedAttendance = predictor.GetProjectedAttendance(hostId, dayOfWeek.ToString());
             ViewBag.ProjectedAttendance = projectedAttendance;
 
             return View(dinner);
