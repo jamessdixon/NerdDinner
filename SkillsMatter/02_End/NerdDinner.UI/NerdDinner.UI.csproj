@@ -488,6 +488,12 @@
   <ItemGroup>
     <Content Include="Views\Shared\Lost.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NerdDinner.Analytics\NerdDinner.Analytics.fsproj">
+      <Project>{0aab13b9-cbb5-4c13-b245-49494c744406}</Project>
+      <Name>NerdDinner.Analytics</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

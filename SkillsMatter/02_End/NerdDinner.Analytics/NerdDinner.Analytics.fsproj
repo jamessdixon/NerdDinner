@@ -53,11 +53,14 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Providers.fs" />
-    <None Include="Intro.fsx" />
-    <None Include="Working.fsx" />
-    <None Include="Complete.fsx" />
+    <None Include="Names.Intro.fsx" />
+    <None Include="Names.Working.fsx" />
+    <None Include="Names.Complete.fsx" />
     <Content Include="packages.config" />
     <Content Include="Google.DataTable.Net.Wrapper.XML" />
+    <None Include="AzureML.Intro.fsx" />
+    <None Include="AzureML.Working.fsx" />
+    <None Include="AzureML.Complete.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Deedle">
