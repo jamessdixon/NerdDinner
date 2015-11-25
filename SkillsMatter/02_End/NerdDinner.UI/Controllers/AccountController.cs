@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using NerdDinner.Models;
+using NerdDinner.Providers;
 
 namespace NerdDinner.Controllers
 {
@@ -55,9 +56,10 @@ namespace NerdDinner.Controllers
                     FormsAuth.SignIn(userName, model.RememberMe);
 
                     //SkillsMatter
-                    //AdProvider adProvider = new AdProvider();
-                    //String catagory = adProvider.GetCatagory(userName);
-                    //Session["adUri"] = "/Content/images/" + catagory + ".png";
+                    var fileUri = "App_Data/nameLookup.csv";
+                    AdProvider adProvider = new AdProvider(fileUri);
+                    String catagory = adProvider.GetCatagory(userName);
+                    Session["adUri"] = "/Content/images/" + catagory + ".png";
 
                     // Make sure we only follow relative returnUrl parameters to protect against having an open redirector
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")

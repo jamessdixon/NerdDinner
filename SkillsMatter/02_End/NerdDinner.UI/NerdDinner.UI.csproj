@@ -381,7 +381,9 @@
     <Content Include="Views\Shared\_MINIPROFILER UPDATED Layout.cshtml" />
     <Content Include="51Degrees.mobi.config" />
     <Content Include="Views\Shared\ViewSwitcher.cshtml" />
-    <Content Include="App_Data\nameLookup.csv" />
+    <Content Include="App_Data\nameLookup.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="_bin_deployableAssemblies\Microsoft.Web.Infrastructure.dll" />
     <None Include="_bin_deployableAssemblies\System.Web.WebPages.Razor.dll" />
     <None Include="_bin_deployableAssemblies\System.Web.WebPages.dll" />
@@ -486,7 +488,12 @@
   <ItemGroup>
     <Content Include="Views\Shared\Lost.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\NerdDinner\NerdDinner.Analytics.fsproj">
+      <Project>{0aab13b9-cbb5-4c13-b245-49494c744406}</Project>
+      <Name>NerdDinner.Analytics</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdDinner.Tests", "NerdDin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdDinner.UI", "NerdDinner.UI\NerdDinner.UI.csproj", "{67C8B33C-A6AE-421F-BF79-3FB8F37A64C0}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "NerdDinner", "NerdDinner\NerdDinner.fsproj", "{0AAB13B9-CBB5-4C13-B245-49494C744406}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "NerdDinner.Analytics", "NerdDinner\NerdDinner.Analytics.fsproj", "{0AAB13B9-CBB5-4C13-B245-49494C744406}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

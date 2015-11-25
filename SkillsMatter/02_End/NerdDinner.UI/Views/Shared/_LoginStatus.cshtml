@@ -9,8 +9,8 @@ else {
     @:[ @Html.ActionLink("Log On", "LogOn", new { controller = "Account", returnUrl = HttpContext.Current.Request.RawUrl }) ]
 }
 
-@*@*Skills Matter*@
+@*Skills Matter*@
 @if (Session["adUri"] != null)
 {
     <img alt="product placement" title="product placement" src="@Session["adUri"]" height="40" />
-}*@
+}
