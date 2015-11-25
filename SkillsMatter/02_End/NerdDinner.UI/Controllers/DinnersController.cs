@@ -69,6 +69,11 @@ namespace NerdDinner.Controllers {
                 return new FileNotFoundResult { Message = "No Dinner found for that id" };
             }
 
+            //Skills Matter
+            //AttendancePredictor predictor = new AttendancePredictor();
+            //var projectedAttendance = predictor.GetProjectedAttendance(dinner.HostedById.Trim(), dinner.EventDate.DayOfWeek.ToString());
+            //ViewBag.ProjectedAttendance = projectedAttendance;
+
             return View(dinner);
         }
 

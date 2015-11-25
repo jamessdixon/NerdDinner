@@ -53,10 +53,10 @@
     <Compile Include="Models.fs" />
     <Compile Include="Interfaces.fs" />
     <Content Include="packages.config" />
-    <None Include="Script1_Complete.fsx" />
-    <None Include="Script2_Complete.fsx" />
-    <None Include="Script3_Complete.fsx" />
-    <None Include="Script4_Complete.fsx" />
+    <None Include="Script1_BeginningExploration.fsx" />
+    <None Include="Script2_UploadSqlServerDataToBlobStorage.fsx" />
+    <None Include="Script3_ConsumeAzureMLEndpoint.fsx" />
+    <None Include="Script4_GenerateRandomDinners.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Charting">

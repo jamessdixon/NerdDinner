@@ -36,6 +36,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -212,12 +213,18 @@
     <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\google.gif" />
     <Content Include="Content\images\infocard_23x16.png" />
+    <Content Include="Content\images\middleAged Female.png" />
+    <Content Include="Content\images\middleAged Male.png" />
     <Content Include="Content\images\myopenid.png" />
+    <Content Include="Content\images\old Female.png" />
+    <Content Include="Content\images\old Male.png" />
     <Content Include="Content\images\openid.gif" />
     <Content Include="Content\images\openid_login.gif" />
     <Content Include="Content\images\verisign.gif" />
     <Content Include="Content\images\yahoo.gif" />
     <Content Include="Content\images\yahoo_login.png" />
+    <Content Include="Content\images\young Female.png" />
+    <Content Include="Content\images\young Male.png" />
     <Content Include="Content\Img\bkg.jpg" />
     <Content Include="Content\Img\btn-go.png" />
     <Content Include="Content\Img\btn-login.png" />
@@ -374,6 +381,7 @@
     <Content Include="Views\Shared\_MINIPROFILER UPDATED Layout.cshtml" />
     <Content Include="51Degrees.mobi.config" />
     <Content Include="Views\Shared\ViewSwitcher.cshtml" />
+    <Content Include="App_Data\nameLookup.csv" />
     <None Include="_bin_deployableAssemblies\Microsoft.Web.Infrastructure.dll" />
     <None Include="_bin_deployableAssemblies\System.Web.WebPages.Razor.dll" />
     <None Include="_bin_deployableAssemblies\System.Web.WebPages.dll" />
@@ -478,9 +486,7 @@
   <ItemGroup>
     <Content Include="Views\Shared\Lost.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -54,6 +54,11 @@ namespace NerdDinner.Controllers
 
                     FormsAuth.SignIn(userName, model.RememberMe);
 
+                    //SkillsMatter
+                    //AdProvider adProvider = new AdProvider();
+                    //String catagory = adProvider.GetCatagory(userName);
+                    //Session["adUri"] = "/Content/images/" + catagory + ".png";
+
                     // Make sure we only follow relative returnUrl parameters to protect against having an open redirector
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
