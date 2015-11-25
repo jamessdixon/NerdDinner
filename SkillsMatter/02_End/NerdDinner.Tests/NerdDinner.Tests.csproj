@@ -186,10 +186,6 @@
       <Project>{67c8b33c-a6ae-421f-bf79-3fb8f37a64c0}</Project>
       <Name>NerdDinner.UI</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NerdDinner\NerdDinner.Analytics.fsproj">
-      <Project>{0aab13b9-cbb5-4c13-b245-49494c744406}</Project>
-      <Name>NerdDinner.Analytics</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
