@@ -1,5 +1,4 @@
-﻿
-//Drag in a reader and point to:
+﻿//Drag in a reader and point to:
 //server: nc54a9m5kk.database.windows.net
 //Database: NerdDinner
 //User Account: chickenskills@nc54a9m5kk

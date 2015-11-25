@@ -147,6 +147,7 @@
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Controllers\AccountControllerTest.cs" />
     <Compile Include="Providers\AdProviderTests.cs" />
+    <Compile Include="Providers\AttendancePredictorTests.cs" />
     <Compile Include="UnitTestHelper.cs" />
   </ItemGroup>
   <ItemGroup>
