@@ -5,7 +5,7 @@ open System
 open FSharp.Data
 
 type AdProvider (fileUri:string) =
-    member this.GetCatagory personName: string =
+    member this.GetCatagory (personName:string) =
         let nameList = CsvFile.Load(fileUri)
         let foundName = nameList.Rows
                             |> Seq.filter(fun r -> r.Item(0) = personName)
