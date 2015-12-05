@@ -5,10 +5,6 @@ open System
 open System.IO
 open FSharp.Data
 
-//For reference
-//http://www.ssa.gov/OACT/babynames/limits.html
-//http://www.fonz.net/blog/archives/2008/04/06/csv-of-states-and-state-abbreviations/
-
 //1) Bring in the data from disk (Data folder)
 //Create 1 large dataframe with all of the state data
 let baseDirectory = System.IO.DirectoryInfo(__SOURCE_DIRECTORY__)
@@ -24,21 +20,19 @@ let usaData = stateCodes.Rows
               |> Seq.collect(fun r -> fetchStateData(r.Item(1)))
               |> Seq.toArray
 
-
 //2) Sum up names regardless of state or year
 let nameSum = usaData |> Seq.groupBy(fun r -> r.Item(3))
                       |> Seq.map(fun (n,a) -> n, a |> Seq.sumBy(fun r -> Int32.Parse(r.Item(4))))
                       |> Seq.toArray
 
-//3) Sum up all records in the USA
+//2) Sum up all records in the USA
 let totalNames = Seq.sumBy(fun (n,c) -> c) nameSum
 
-//4) Most popular names?
+//3) Most popular names?
 nameSum |> Seq.map(fun (n,c) -> n, c, float c/float totalNames)
         |> Seq.sortByDescending(fun (n,c,p) -> p)
 
-
-//5) Make a function to see how a name splits by gender
+//4) Make a function to see how a name splits by gender
 let genderSearch name =
     let filter = 
         usaData |> Seq.filter(fun r -> r.Item(3) = name)
@@ -50,7 +44,7 @@ let genderSearch name =
 
 genderSearch "James" 
 
-//6) Make a function to see how a name splits by year of birth
+//4) Make a function to see how a name splits by year of birth
 let yearBirth name =
     let filter = 
         usaData |> Seq.filter(fun r -> r.Item(3) = name)
@@ -62,7 +56,7 @@ let yearBirth name =
 
 yearBirth "James" 
 
-//7) Combine the functions using a high order function
+//5) Combine the functions using a high order function
 let nameQuery name grouper =
     let filter = 
         usaData |> Seq.filter(fun r -> r.Item(3) = name)
@@ -72,11 +66,10 @@ let nameQuery name grouper =
     let total = filter |> Seq.sumBy(fun (i,c) -> c) 
     filter |> Seq.map(fun (i,c) -> i,c, float c/float total)
 
-
 nameQuery "James" (fun r -> r.Item(1))
 nameQuery "James" (fun r -> r.Item(2))
 
-//8) See how the name looks over the years using a chart
+//6) See how the name looks over the years using a chart
 #load "../packages/FSharp.Charting.0.90.13/FSharp.Charting.fsx"
 open FSharp.Charting
 
@@ -84,7 +77,21 @@ let chartData = nameQuery "James" (fun r -> r.Item(2))
                 |> Seq.map(fun (y,c,p) -> y,c)
 Chart.Line(chartData)
 
-//9) Using the attachment point, determine the popular years for a name
+//7) Calculate basic statiistics for a name - Min.Max,Mean
+usaData |> Array.filter(fun r -> r.Item(3) = "James")
+        |> Array.map(fun r -> r.Item(4))
+        |> Array.min
+
+usaData |> Array.filter(fun r -> r.Item(3) = "James")
+        |> Array.map(fun r -> float(r.Item(4)))
+        |> Array.max
+
+usaData |> Array.filter(fun r -> r.Item(3) = "James")
+        |> Array.map(fun r -> float(r.Item(4)))
+        |> Array.average
+
+
+//8) Using the attachment point, determine the popular years for a name
 let variance (values:float seq) =
     let mean = Seq.average values
     let deltas = Seq.map(fun x -> pown(x-mean) 2) values
@@ -113,12 +120,12 @@ let popularYears name =
 
 popularYears "James"
 
-//10) Instead of year of birth, can the state of birth tell us anything?
+//9) Instead of year of birth, can the state of birth tell us anything?
 let chartData' = nameQuery "James" (fun r -> r.Item(0))
                 |> Seq.map(fun (s,c,p) -> s,c)
 Chart.Bar(chartData')
 
-//11) Quartiles
+//10) Quartiles
 let topQuartileStates = nameQuery "James" (fun r -> r.Item(0))
                             |> Seq.sortByDescending(fun (s,c,p) -> p)
                             |> Seq.take (50/4)
@@ -131,12 +138,23 @@ let total = nameQuery "James" (fun r -> r.Item(0))
 
 float topQuartileTotal/float total
 
-//12) So we have somthing with age, but not really state
+//11) So we have somthing with age, but not really state
+
 //Let's create a lookup file to be used in our application
 //Assume any name whose gender is > 75% is should be catagorized as that gender
 //For example, 'James' is 99% male, so it should be catagorized as 'Male'
-//Also, assume anyone whose last year as a popular name was before 1945 is old
-//And anyone whose last popular year is after 1980 is young
+//Also, assume anyone whose last year as a popular name was before 1945 is 'old'
+//And anyone whose last popular year is after 1980 is 'young'
+//Anyone in between is 'middle aged'
+//So the last populate year for 'James' was 1964, si he would be catagorized
+//as middke aged
+
+//Make an age group and gender DU
+//Make a function that calcualtes the ageband for a given name.
+//If one is not avaiable, return a none
+//If one is avaiable, reuturn theie age class
+//Then do the same for gender
+//Once you have age and gender class, return it as a tuple
 
 type AgeGroup =
 | Old
@@ -174,6 +192,10 @@ let getNameCategory name =
 
 getNameCategory "James"
 
+//12) Once you have the age/gender result for a name
+//return it as a tuple with the name and a string description
+//For example
+//Some Old, Some Male = {Name} , Old Male'
 let getNamePrintout name =
     match getNameCategory name with
     | None, _ -> name, "Unknown"
@@ -193,15 +215,3 @@ nameSum |> Seq.map(fun (n,c) -> getNamePrintout n)
         |> Seq.iter(fun (n,s) -> outFile.WriteLine(sprintf "%s,%s" n s))
 outFile.Flush
 outFile.Close()
-
-let foo = "bar"
-
-
-
-
-
-
-
-
-
-
