@@ -63,5 +63,5 @@ type AttendancePredictor (apiKey:string, uri: string) =
         client.Headers.Add("Content-Type", "application/json")
         let resultJson = client.UploadString(uri,json)
         let result = JsonConvert.DeserializeObject<ScoreResponse>(resultJson)
-        let reultValues = Seq.last result.Results.Output.Value.Values 
-        Seq.last  reultValues
+        let resultValues = Seq.last result.Results.Output.Value.Values 
+        Seq.last  resultValues

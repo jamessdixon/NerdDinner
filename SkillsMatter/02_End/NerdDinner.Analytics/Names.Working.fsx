@@ -9,9 +9,9 @@ open FSharp.Data
 //http://www.ssa.gov/OACT/babynames/limits.html
 //http://www.fonz.net/blog/archives/2008/04/06/csv-of-states-and-state-abbreviations/
 
-//1) Bring in the data for Social Secourity Info and State Listings
+//1) Bring in the data for Social Security Info and State Listings
 //Create 1 large dataframe with all of the state data from Disk
-//Data\\SSA\
+//Data\\SSA\...
 //Data\State Code\states.csv
 //
 //val usaData : CsvRow [] =
@@ -70,7 +70,7 @@ open FSharp.Charting
 //val chartData : seq<string * int>
 //val it : ChartTypes.GenericChart = (Chart)
 
-//7) Calculate basic statiistics for a name - Min.Max,Mean
+//7) Calculate basic statiistics for a name - Min,Max,Mean
 //
 //val it : string = "10"
 //> 

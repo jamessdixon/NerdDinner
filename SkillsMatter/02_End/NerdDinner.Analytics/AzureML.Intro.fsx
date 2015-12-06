@@ -4,7 +4,7 @@
 //Drag in a reader and point to: http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data
 //drag in a metadata editor to make new column names: sepalLength,sepalWidth,petalLength,petalWidth,class
 //drag in a metadata editor to make sepalLength,sepalWidth,petalLength,petalWidth a float
-//drag in a metadata editors to make dayofWeek categorical
+//drag in a metadata editors to make class categorical
 //drag in a split
 //drag in a model
 //drag in a train - predict petalWidth
@@ -64,7 +64,7 @@ client.Headers.Add("Authorization","Bearer " + apiKey)
 client.Headers.Add("Content-Type", "application/json")
 let resultJson = client.UploadString(uri,json)
 let result = JsonConvert.DeserializeObject<ScoreResponse>(resultJson)
-let reultValues = Seq.last result.Results.Output.Value.Values 
-Seq.last  reultValues
+let resultValues = Seq.last result.Results.Output.Value.Values 
+Seq.last  resultValues
 
 

@@ -2,6 +2,7 @@
 //PM> Install-Package FsLab
 
 //1) Get data via Type Provider
+//http://fsharp.github.io/FSharp.Data/library/CsvProvider.html
 //Transform using Array.Map
 //Create a Tuple
 #r "../packages/FSharp.Data.2.2.5/lib/net40/FSharp.Data.dll"
@@ -40,6 +41,7 @@ let getOpenPrices = allData |> Array.map(fun (t,r) -> r.Item(1))
 let getClosePrices = allData |> Array.map(fun (t,r) -> r.Item(3))
 
 let getPrices mapper = allData |> Array.map(mapper)
+
 getPrices(fun (t,r) -> r.Item(1))
 getPrices(fun (t,r) -> r.Item(3))
 
@@ -94,7 +96,6 @@ maxDays |> Array.last, maxDays |> Array.head
 //9) Create a chart 
 let chartData' = allData |> Array.map (fun (t,r) -> r.Item(0), r.Item(5))
 Chart.Bar(chartData')
-
 
 //10 Quartiles
 //http://www.mathsisfun.com/data/quartiles.html
