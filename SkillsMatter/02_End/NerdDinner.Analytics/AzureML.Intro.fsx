@@ -47,8 +47,8 @@ type Results(output1: Output1) =
 type ScoreResponse(results:Results) =
     member this.Results = results
 
-let apiKey = "M3uxW3kJwnNQf8BMRwPze3CEnxNu78hWf8xBhiyNHuhARzXxO92NKKTF5K+aDxHg/lv5Qp7EOr50haGhw/MzaQ=="
-let uri = "https://ussouthcentral.services.azureml.net/workspaces/8d32705e228247c7b2f14301c2158a99/services/7e8945a9310e469a9a23bec585ea0ce8/execute?api-version=2.0&details=true"
+let apiKey = "RzXsY9xTe6+/O//fHs67G+EDCrQFuK2odn7TaRZYobTTcxKgctqYvBrbAJyZuIZ0awO/4Rdp846ptHGQWV6+fg=="
+let uri = "https://ussouthcentral.services.azureml.net/workspaces/8d32705e228247c7b2f14301c2158a99/services/6e64459224704560bf6aa7d6dec6a847/execute?api-version=2.0&details=true"
  
 let columnNames = [|"Col1";"Col2";"Col3";"Col4";"Col5"|]
 //Col4 is petal width, which we are predicting

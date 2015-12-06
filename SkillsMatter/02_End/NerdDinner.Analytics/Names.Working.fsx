@@ -5,7 +5,6 @@ open System
 open System.IO
 open FSharp.Data
 
-
 //For reference
 //http://www.ssa.gov/OACT/babynames/limits.html
 //http://www.fonz.net/blog/archives/2008/04/06/csv-of-states-and-state-abbreviations/
@@ -79,7 +78,7 @@ open FSharp.Charting
 //> 
 //val it : float = 704.4430865
 
-//8) Calcualte the attachment point and determine the popular years for a name
+//8) Calculate the attachment point and determine the popular years for a name
 //
 //val variance : values:seq<float> -> float
 //val standardDeviation : values:seq<float> -> float
@@ -94,7 +93,7 @@ open FSharp.Charting
 //val chartData' : seq<string * int>
 //val it : ChartTypes.GenericChart = (Chart)
 
-//10) Detemine wat % of names are in top Quartile of states
+//10) Detemine what % of names are in top Quartile of states
 //
 //val topQuartileStates : seq<string * int * float>
 //val topQuartileTotal : int = 2755952
